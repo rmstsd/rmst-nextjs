@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html>
-      <body className={inter.className}>
-        <aside>
+      <body>
+        {/* <aside>
           {count}
 
           <button className="border" onClick={() => setCount(count + 1)}>
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </button>
 
           <Link href="/good">/good</Link>
-        </aside>
+        </aside> */}
 
         {children}
       </body>
