@@ -1,11 +1,18 @@
-import clsx from 'clsx'
-import '@/app/ui/global.css'
-import { inter } from '@/app/ui/fonts'
+import './globals.css'
+import './style.css'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+import Sidebar from '@/components/Sidebar'
+
+export default async function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={clsx(inter.className)}>{children}</body>
+      <body>
+        <div className="main">
+          <Sidebar />
+
+          <section className="col note-viewer">{children}</section>
+        </div>
+      </body>
     </html>
   )
 }
