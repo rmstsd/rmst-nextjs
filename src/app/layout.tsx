@@ -8,13 +8,15 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
   return (
     <html lang="en">
       <body>
-        <Header />
+        {children}
 
+        {/* 
+        <Header />
         <main className="main">
           <Sidebar />
 
           <section className="col note-viewer">{children}</section>
-        </main>
+        </main> */}
       </body>
     </html>
   )
