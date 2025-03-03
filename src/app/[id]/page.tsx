@@ -11,7 +11,7 @@ type Props = {
 
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const id = (await params).id
-  const detail = (await findEntityOne(id)).entityValue
+  const detail = await findEntityOne(id)
   console.log('generateMetadata', detail.title)
 
   return {
@@ -23,8 +23,8 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 export default async function Detail({ params }: { params: Promise<{ id: string }> }) {
   const id = (await params).id
 
-  const detail = (await findEntityOne(id)).entityValue
-  console.log('Detail Page', detail)
+  const detail = await findEntityOne(id)
+  console.log('Detail Page', detail.title)
 
   return (
     <div>

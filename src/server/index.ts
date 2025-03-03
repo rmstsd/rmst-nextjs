@@ -16,19 +16,19 @@ export async function findEntityPage() {
   const r = await fetch(`${baseURL}/entity/find/page`, {
     method: 'POST',
     headers,
-    body: JSON.stringify(req)
+    body: JSON.stringify(req),
+    cache: 'force-cache'
   }).then(res => res.json())
 
   return r.page
 }
 
 export async function findEntityOne(id: string) {
-  return {}
-  // const r = await fetch(`${baseURL}/entity/find/one`, {
-  //   method: 'POST',
-  //   headers,
-  //   body: JSON.stringify({ entityName: 'Article', id })
-  // }).then(r => r.json())
+  const r = await fetch(`${baseURL}/entity/find/one`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ entityName: 'Article', id })
+  }).then(r => r.json())
 
-  // return r.data
+  return r.entityValue
 }
