@@ -5,13 +5,11 @@ import { findEntityPage } from '@/server'
 import TimeAgo from '@/components/TimeAgo'
 
 export default async function Home() {
-  const data = await findEntityPage('Article')
-
-  console.log('Home')
+  const data = await findEntityPage()
 
   return (
     <div className={styles.container}>
-      {data.page.map(item => (
+      {data.map(item => (
         <div key={item.id} className={styles.item}>
           <div>
             <span>标题: </span>
