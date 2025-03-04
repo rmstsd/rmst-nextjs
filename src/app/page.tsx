@@ -3,12 +3,19 @@ import styles from './page.module.css'
 
 import { findEntityPage } from '@/server'
 import TimeAgo from '@/components/TimeAgo'
+import Image from 'next/image'
+import loader from '@/loader'
 
 export default async function Home() {
   const data = await findEntityPage()
 
   return (
     <div className={styles.container}>
+      <span>public/test.png</span>
+      <Image src="/test.png" alt="tt" width={140} height={80} style={{ objectFit: 'cover' }}></Image>
+
+      <hr />
+
       {data.map(item => (
         <div key={item.id} className={styles.item}>
           <div>
@@ -29,6 +36,18 @@ export default async function Home() {
           <div>
             更新时间: <TimeAgo time={item.modifiedOn} />
           </div>
+          {item.cover?.path && (
+            <Image
+              src={item.cover?.path}
+              alt="tt"
+              width={140}
+              height={80}
+              loader={loader}
+              style={{ objectFit: 'cover' }}
+            ></Image>
+          )}
+
+          <hr />
         </div>
       ))}
     </div>

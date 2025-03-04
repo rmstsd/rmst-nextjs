@@ -1,9 +1,13 @@
 import TimeAgoShow from '@/components/TimeAgo'
 import { findEntityOne, findEntityPage } from '@/server'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import type { Metadata, ResolvingMetadata } from 'next'
 import { isDev } from '@/constant'
+import loader from '@/loader'
+
+const initialSsgCount = 2
 
 type Props = {
   params: Promise<{ id: string }>
@@ -24,7 +28,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 export async function generateStaticParams() {
   console.log('generateStaticParams')
 
-  const ids = (await findEntityPage()).slice(0, 2).map(item => ({ id: item.id }))
+  const ids = (await findEntityPage()).slice(0, initialSsgCount).map(item => ({ id: item.id }))
 
   return ids
 }
@@ -46,6 +50,18 @@ export default async function Detail({ params }: { params: Promise<{ id: string 
       <div>
         更新时间: <TimeAgoShow time={detail.modifiedOn} />
       </div>
+
+      {detail.cover?.path && (
+        <Image
+          src={detail.cover?.path}
+          alt="tt"
+          width={140}
+          height={80}
+          loader={loader}
+          style={{ objectFit: 'cover' }}
+        ></Image>
+      )}
+
       <pre style={{ fontSize: 18, fontFamily: 'Consolas' }}>{JSON.stringify(detail, null, 2)}</pre>
     </div>
   )
