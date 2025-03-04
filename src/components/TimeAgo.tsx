@@ -13,7 +13,6 @@ export default function TimeAgoShow({ time }) {
 
   useEffect(() => {
     const t = setInterval(() => {
-      console.log('up')
       setTimeAgoStr(timeAgo.format(time))
     }, 1000)
 

@@ -1,8 +1,9 @@
 import TimeAgoShow from '@/components/TimeAgo'
-import { dataList, findEntityOne } from '@/server'
+import { findEntityOne, findEntityPage } from '@/server'
 import Link from 'next/link'
 
 import type { Metadata, ResolvingMetadata } from 'next'
+import { isDev } from '@/constant'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -15,7 +16,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
   console.log('generateMetadata', detail.title)
 
   return {
-    title: detail.title,
+    title: isDev ? `dev - ${detail.title}` : detail.title,
     description: detail.summary
   }
 }
@@ -23,7 +24,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 export async function generateStaticParams() {
   console.log('generateStaticParams')
 
-  const ids = dataList.slice(0, 2).map(item => ({ id: item.id }))
+  const ids = (await findEntityPage()).slice(0, 2).map(item => ({ id: item.id }))
 
   return ids
 }
