@@ -5,8 +5,8 @@ addData(1)
 function addData(length) {
   const headers = {
     'Content-Type': 'application/json',
-    'xyy-app-id': 'm4',
-    'xyy-app-key': 'Seer1234'
+    'xyy-app-id': 'm4', // 从 m4 左侧菜单 代理账户获取
+    'xyy-app-key': 'Seer1234' // 从 m4 左侧菜单 代理账户获取
   }
 
   Array.from({ length }).forEach(async () => {
