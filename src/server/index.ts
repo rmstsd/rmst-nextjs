@@ -8,7 +8,7 @@ const headers = {
 }
 
 export async function findEntityPage() {
-  const req = { entityName: 'Article', query: {}, pageNo: 1, pageSize: 10, sort: ['-id'] }
+  const req = { entityName: 'Article', query: {}, pageNo: 1, pageSize: 20, sort: ['-id'] }
   console.log('findEntityPage')
   const r = await fetch(`${baseURL}/entity/find/page`, {
     method: 'POST',

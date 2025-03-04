@@ -16,10 +16,11 @@ export default async function Home() {
 
       <hr />
 
-      {data.map(item => (
+      {data.map((item, index) => (
         <div key={item.id} className={styles.item}>
           <div>
-            <span>标题: </span>
+            <span>序号: {index} </span>
+            <span style={{ marginLeft: 15 }}>标题: </span>
             <Link className={styles.title} href={`/${item.id}`}>
               {item.title}
             </Link>

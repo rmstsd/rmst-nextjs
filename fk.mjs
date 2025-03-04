@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker/locale/zh_CN'
 
-addData(1)
+addData(30)
 
 function addData(length) {
   const headers = {
