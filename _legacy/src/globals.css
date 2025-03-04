@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  @apply p-2 border border-gray-400 hover:text-red-500;
+}
