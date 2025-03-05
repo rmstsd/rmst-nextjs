@@ -1,0 +1,16 @@
+# Logs
+pnpm-debug.log
+README.md
+
+node_modules
+
+.dockerignore
+Dockerfile
+
+# Editor directories and files
+.vscode
+.github
+.git
+.DS_Store
+
+_legacy

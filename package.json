@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack -p 7000",
     "build": "next build",
-    "start": "npm run build && next start -p 7001",
+    "start": "next start -p 7001",
     "copy-static-standalone": "cp-cli public .next/standalone/public && cp-cli .next/static .next/standalone/.next/static",
-    "start-standalone": "npm run build && npm run copy-static-standalone && set PORT=7001 && node .next/standalone/server.js",
+    "build-standalone": "npm run build && npm run copy-static-standalone",
+    "start-standalone": "npm run build-standalone && set PORT=7001 && node .next/standalone/server.js",
     "lint": "next lint"
   },
   "dependencies": {
