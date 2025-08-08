@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import styles from './page.module.css'
 
@@ -5,16 +7,20 @@ import { findEntityPage } from '@/server'
 import TimeAgo from '@/components/TimeAgo'
 import Image from 'next/image'
 import loader from '@/loader'
-import { Button, Select } from 'antd'
+import { Button, Drawer, Select } from 'antd'
 import Input from '@/components/Input'
+import { useLayoutEffect } from 'react'
 
 const { Option } = Select
 
 export default function Home2() {
+  useLayoutEffect(() => {}, [])
+
   return (
     <div>
       <Button type="primary">Button</Button>
 
+      <Drawer open>asdas</Drawer>
       <Input />
     </div>
   )
