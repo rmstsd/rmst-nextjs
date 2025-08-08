@@ -10,6 +10,7 @@ import loader from '@/loader'
 import { Button, Drawer, Select } from 'antd'
 import Input from '@/components/Input'
 import { useLayoutEffect } from 'react'
+import Portal from '@/components/Portal/Portal'
 
 const { Option } = Select
 
@@ -19,8 +20,9 @@ export default function Home2() {
   return (
     <div>
       <Button type="primary">Button</Button>
-
-      <Drawer open>asdas</Drawer>
+      <Drawer open>
+        <main>asdas</main>
+      </Drawer>
       <Input />
     </div>
   )
