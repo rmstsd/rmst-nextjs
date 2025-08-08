@@ -12,6 +12,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.1.0",
+    "antd": "^5.26.7",
     "javascript-time-ago": "^2.5.11",
     "next": "15.2.0",
     "react": "^19.0.0",
